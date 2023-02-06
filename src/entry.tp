@@ -1,0 +1,190 @@
+{
+  "sdk": 6,
+  "version": 100,
+  "name": "TikTokLive Plugin",
+  "id": "tp.plugin.TikTokLive",
+  "configuration": {
+    "colorDark": "#23272a",
+    "colorLight": "#57ad72"
+  },
+  "plugin_start_cmd_windows": "%TP_PLUGIN_FOLDER%TikTokLive\\TikTokLive_Plugin.exe",
+  "categories": [
+    {
+      "id": "tp.plugin.TikTokLive.main",
+      "name": "TikTokLive",
+      "imagepath": "%TP_PLUGIN_FOLDER%TikTokLive\\TikTokLive.png",
+      "actions": [
+        {
+          "id": "tp.plugin.TikTokLive.act.Connect",
+          "name": "TikTok | Connect / Disconnect / Reconnect",
+          "prefix": "TikTokLive",
+          "type": "communicate",
+          "description": "Connect / Disconnect / Reconnect from your TikTok Live Chat",
+          "format": "{$tp.plugin.TikTokLive.act.light.on.off.toggle$} to or from the chat",
+          "tryInline": true,
+          "data": [
+            {
+              "id": "tp.plugin.TikTokLive.act.light.on.off.toggle",
+              "type": "choice",
+              "label": "Text",
+              "default": "Toggle",
+              "valueChoices": [
+                "Connect",
+                "Disconnect"
+              ]
+            }
+          ]
+        }
+      ],
+      "states": [
+        {
+          "id": "tp.plugin.TikTokLive.state.plugin_status",
+          "type": "text",
+          "desc": "TikTok | Plugin Status",
+          "default": ""
+        },
+        {
+          "id": "tp.plugin.TikTokLive.state.like_count",
+          "type": "text",
+          "desc": "TikTok | Live Video Like Count",
+          "default": ""
+        },
+        {
+          "id": "tp.plugin.TikTokLive.state.viewer_count",
+          "type": "text",
+          "desc": "TikTok | Live Video Viewer Count",
+          "default": ""
+        }
+      ],
+      "events": [
+        {
+          "id": "tp.plugin.TikTokLive.event.newFollower",
+          "name": "TikTok | New Follower",
+          "format": "When receiving a new follower $val ",
+          "type": "communicate",
+          "valueChoices": [
+            "True",
+            "False"
+          ],
+          "valueType": "choice",
+          "valueStateId": "tp.plugin.TikTokLive.state.newFollower"
+        },
+        {
+          "id": "tp.plugin.TikTokLive.event.newLike",
+          "name": "TikTok | New Like",
+          "format": "When receiving a new like $val ",
+          "type": "communicate",
+          "valueChoices": [
+            "True"
+          ],
+          "valueType": "choice",
+          "valueStateId": "tp.plugin.TikTokLive.state.newLike"
+        },
+        {
+          "id": "tp.plugin.TikTokLive.event.newShare",
+          "name": "TikTok | New Share",
+          "format": "When receiving a new share $val ",
+          "type": "communicate",
+          "valueChoices": [
+            "True"
+          ],
+          "valueType": "choice",
+          "valueStateId": "tp.plugin.TikTokLive.state.newShare"
+        },
+        {
+          "id": "tp.plugin.TikTokLive.event.newComment",
+          "name": "TikTok | New Comment",
+          "format": "When receiving a new comment $val ",
+          "type": "communicate",
+          "valueChoices": [
+            "True"
+          ],
+          "valueType": "choice",
+          "valueStateId": "tp.plugin.TikTokLive.state.newComment"
+        },
+        {
+          "id": "tp.plugin.TikTokLive.event.newGift",
+          "name": "TikTok | New Gift",
+          "format": "When receiving a new gift $val ",
+          "type": "communicate",
+          "valueChoices": [
+            "True"
+          ],
+          "valueType": "choice",
+          "valueStateId": "tp.plugin.TikTokLive.state.newGift"
+        },
+        {
+          "id": "tp.plugin.TikTokLive.event.newJoin",
+          "name": "TikTok | New Join",
+          "format": "When receiving a new join $val ",
+          "type": "communicate",
+          "valueChoices": [
+            "True"
+          ],
+          "valueType": "choice",
+          "valueStateId": "tp.plugin.TikTokLive.state.newJoin"
+        }
+      ],
+      "connectors": []
+    },
+    {
+      "id": "tp.plugin.TikTokLive.recent",
+      "name": "TikTokLive Recents",
+      "actions": [],
+      "states": [
+        {
+          "id": "tp.plugin.TikTokLive.state.newFollower",
+          "type": "text",
+          "desc": "TikTok | Most Recent Follower",
+          "default": ""
+        },
+        {
+          "id": "tp.plugin.TikTokLive.state.Recent.Like.Name",
+          "type": "text",
+          "desc": "TikTok | Most Recent Like Name",
+          "default": ""
+        },
+        {
+          "id": "tp.plugin.TikTokLive.state.Recent.Like.Name.TimesLiked",
+          "type": "text",
+          "desc": "TikTok | Most Recent Like Times Liked",
+          "default": ""
+        },
+        {
+          "id": "tp.plugin.TikTokLive.state.newShare",
+          "type": "text",
+          "desc": "TikTok | Most Recent Share",
+          "default": ""
+        },
+        {
+          "id": "tp.plugin.TikTokLive.state.newComment",
+          "type": "text",
+          "desc": "TikTok | Most Recent Comment",
+          "default": ""
+        },
+        {
+          "id": "tp.plugin.TikTokLive.state.newGift",
+          "type": "text",
+          "desc": "TikTok | Most Recent Gift",
+          "default": ""
+        },
+        {
+          "id": "tp.plugin.TikTokLive.state.newJoin",
+          "type": "text",
+          "desc": "TikTok | Most Recent Join",
+          "default": ""
+        }
+      ],
+      "events": [],
+      "connectors": []
+    }
+  ],
+  "settings": [
+    {
+      "name": "TikTok Username",
+      "type": "text",
+      "default": "",
+      "readOnly": false
+    }
+  ]
+}
