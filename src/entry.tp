@@ -8,6 +8,8 @@
     "colorLight": "#57ad72"
   },
   "plugin_start_cmd_windows": "%TP_PLUGIN_FOLDER%TikTokLive\\TikTokLive_Plugin.exe",
+  "plugin_start_cmd_linux": "sh %TP_PLUGIN_FOLDER%YouTube_Plugin//start.sh TikTokLive_Plugin",
+  "plugin_start_cmd_mac": "sh %TP_PLUGIN_FOLDER%TikTokLive//start.sh TikTokLive_Plugin",
   "categories": [
     {
       "id": "gitago.TikTokLive.main",
