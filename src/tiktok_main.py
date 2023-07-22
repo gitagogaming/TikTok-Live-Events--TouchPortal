@@ -49,8 +49,8 @@ except Exception as e:
 def handleSettings(settings, on_connect=False):
     settings = { list(settings[i])[0] : list(settings[i].values())[0] for i in range(len(settings)) }
     autoConnect = settings.get('Auto Connect', False)
+    tk.Username = settings.get('TikTok Username')
     if autoConnect == "True":
-        tk.Username = settings.get('TikTok Username')
         if tk.Username != "":
             tk.startup = True
             tk.set_client(tk.Username)
@@ -113,10 +113,11 @@ def onAction(data):
             tk.stop_TikTok_Thread()
        
         if data['data'][0]['value'] == "Connect":
-            tk.startup = True
-            tk.set_client(tk.Username)
-            run_tk()
-            tk.isalive = True
+            if tk.Username != "":
+                tk.startup = True
+                tk.set_client(tk.Username)
+                run_tk()
+                tk.isalive = True
 
 
 # Shutdown handler
@@ -505,106 +506,3 @@ if __name__ == "__main__":
 
 
 
-
-
-
-#base64_data = TP.Tools.convertImage_to_base64("https://p16-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/e9c3e8035885276e96c77632deefb252~tplv-tiktok-shrink:72:72.webp?x-expires=1690077600&x-signature=cIucsUGKGER85kf%2BNZV6eGr5DRo%3D")
-#print(base64_data)
-
-
-
-
-#import requests
-#
-#def get_content_type(url):
-#    try:
-#        r = requests.head(url)
-#        content_type = r.headers.get('content-type')
-#        return content_type
-#    except requests.exceptions.RequestException as e:
-#        print(f"Error: {e}")
-#        return None
-#
-#url = "https://p16-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/d650a1cd818572f3ec9790500c72b486~c5_100x100.webp?x-expires=1690077600&x-signature=C4Oi5uTpk6kWmiZvTWuvtoC0%2Ba4%3D"
-#url2 = "https://p19-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/d650a1cd818572f3ec9790500c72b486~c5_100x100.webp?x-expires=1690077600&x-signature=nTEOqi970NMerDIShzKZEnukcYQ%3D"
-#content_type = get_content_type(url)
-#
-#content_type2 = get_content_type(url2)
-#
-#if content_type:
-#    print(f"Content-Type: {content_type}")
-#else:
-#    print("Failed to retrieve Content-Type.")
-
-
-
-
-
-##  from TikTokLive import TikTokLiveClient
-##  from TikTokLive.types.events import CommentEvent
-##  
-##  client = TikTokLiveClient("@fadkeys_welfare_bidding")
-##  
-##  
-##  
-##  # created a signed url for http request to send a live message to tiktok
-##  
-##  async def sign_url(raw_url: str, session_id: str):
-##      """
-##      
-##      You will need to create your OWN function to modify the HTTP request to your liking so that it passes TikTok Auth.
-##      TikTokLive cannot and will not provide signatures, but if you want this functionality, it's here.
-##      
-##      :param raw_url: The URL that requires signing
-##      :param session_id: The sessionid sending the message
-##      :return: None
-##      
-##      """
-##      # generate a signed url
-##      signed_url: str = raw_url + (
-##          f"&msToken={'wfRVE37020y77mqvBK-OKij3ghtSsaG1WVzkREKXymjJ9WJmWozhhS7XSyB5ZhVXquqOcAi9uRllk4Eh_bc2ql7GTf7V_Py09gu05plC0Zq70VcDj3r1bKeD-u5jnN538_VFqS0='}"
-##          f"&X-Bogus={'DFSzywGL47bANy5htjG6wsXyYJlH'}"
-##          f"&User-Agent={'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36'}"
-##          f"&browserVersion={'5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36'}"
-##          f"&browserName={'Mozilla'}"
-##          f"&_signature={'_02B4Z6wo00001mCGiLQAAIDDQyemG.O51kpgpowAAPyq40'}"
-##      )
-##  
-##      # You will need to supply your own headers
-##      headers: dict = {
-##          "Cookie": "ttwid=1%7CWmE5zijCzdsDvqBxWbhA8K0c8Aj3ku2pul-mJz2eQ0g%7C1689948120%7Cce10b6849f6bacc94c5acaf4e43d82f9414b301982d8cc08ca4ce890fad6cd13;",
-##          **client._http.headers
-##      }
-##      return signed_url, headers
-##  
-##  
-##  #@client.on("message")
-##  async def on_ping(event: CommentEvent):
-##      """
-##      When someone runs the /ping command, choose how to react
-##      :param event: Comment event
-##      :return: None
-##      """
-##  
-##     # # If not ping, return
-##     # if event.comment.lower() != "/ping":
-##     #     return
-##  
-##          # Reply with Pong
-##      reply: str = f"how are you?"
-##      print(f"The bot will respond in chat with \"{reply}\"")
-##  
-##      await client.send_message(
-##          text=reply,
-##          sign_url_fn=sign_url,
-##          session_id="d66beceff0b4513baba65ea6c265981b"
-##      )
-##      sys.exit()
-##  
-##  if __name__ == '__main__':
-##      """
-##      An example showing you how you can send comments to your live
-##      
-##      """
-##      client.add_listener("comment", on_ping)
-##      client.run()
