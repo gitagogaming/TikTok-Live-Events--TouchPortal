@@ -1,6 +1,6 @@
 {
   "sdk": 6,
-  "version": 101,
+  "version": 103,
   "name": "TikTokLive Plugin",
   "id": "gitago.TikTokLive",
   "configuration": {

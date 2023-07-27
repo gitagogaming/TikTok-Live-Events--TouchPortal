@@ -1,4 +1,4 @@
-__version__ = 102
+__version__ = 103
 PLUGIN_ID = "gitago.TikTokLive"
 PLUGIN_NAME = "TikTokLive"
 PLUGIN_FOLDER = "TikTokLive"
