@@ -1,7 +1,7 @@
 ##Build.py
 
 from TouchPortalAPI import tppbuild
-from tppentry import PLUGIN_NAME, PLUGIN_FOLDER, PLUGIN_ICON
+from src.tppentry import PLUGIN_NAME, PLUGIN_FOLDER, PLUGIN_ICON
 import json
 import os
 
