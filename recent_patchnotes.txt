@@ -1,1 +1,2 @@
-Fixes... 
+Updated to support macOS & Linux
+Please update to remove notifcation.
