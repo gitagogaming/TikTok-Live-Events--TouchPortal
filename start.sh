@@ -13,4 +13,4 @@ then
     sleep 1
 fi
 
-./$prog -l log.txt
+./$prog -l log.tx
