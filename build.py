@@ -9,7 +9,7 @@ import os
 PLUGIN_MAIN = "main.py"
 PLUGIN_EXE_NAME = PLUGIN_NAME
 PLUGIN_EXE_ICON = rf"{PLUGIN_ICON}"
-PLUGIN_ENTRY = "src/entry.tp"  # Here we just use the same file as the plugin's main code since that contains all the definitions for entry.tp.
+PLUGIN_ENTRY = "entry.tp"  # Here we just use the same file as the plugin's main code since that contains all the definitions for entry.tp.
 PLUGIN_ENTRY_INDENT = 2
 PLUGIN_ROOT = PLUGIN_FOLDER
 PLUGIN_ICON = rf"{PLUGIN_ICON}"
