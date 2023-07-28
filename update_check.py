@@ -2,7 +2,7 @@
 import TouchPortalAPI
 import requests
 import base64
-from entry import PLUGIN_ID
+from TPPEntry import PLUGIN_ID
 
 #PLUGIN_NAME = "TikTokLive"
 GITHUB_USER_NAME = "GitagoGaming"

@@ -11,7 +11,7 @@ import threading
 import sys
 import time
 
-from entry import PLUGIN_ID, TP_PLUGIN_INFO, __version__, PLUGIN_NAME
+from TPPEntry import PLUGIN_ID, TP_PLUGIN_INFO, __version__, PLUGIN_NAME
 from TouchPortalAPI.logger import Logger
 from argparse import ArgumentParser
 import TouchPortalAPI as TP
