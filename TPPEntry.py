@@ -317,6 +317,9 @@ for action_type in action_types:
             'default': ""
         }
         configurations[key] = configuration
+
+
+print(configurations)
 TP_PLUGIN_STATES.update(configurations)
 
 
