@@ -1,0 +1,417 @@
+{
+  "sdk": 6,
+  "version": 103,
+  "name": "TikTokLive Plugin",
+  "id": "gitago.TikTokLive",
+  "configuration": {
+    "colorDark": "#23272a",
+    "colorLight": "#57ad72"
+  },
+  "plugin_start_cmd_windows": "%TP_PLUGIN_FOLDER%TikTokLive\\TikTokLive_Plugin.exe",
+  "plugin_start_cmd_linux": "sh %TP_PLUGIN_FOLDER%YouTube_Plugin//start.sh TikTokLive_Plugin",
+  "plugin_start_cmd_mac": "sh %TP_PLUGIN_FOLDER%TikTokLive//start.sh TikTokLive_Plugin",
+  "categories": [
+    {
+      "id": "gitago.TikTokLive.main",
+      "name": "TikTokLive",
+      "imagepath": "%TP_PLUGIN_FOLDER%TikTokLive\\TikTokLive.png",
+      "actions": [
+        {
+          "id": "gitago.TikTokLive.act.Connect",
+          "name": "TikTok | Connect / Disconnect / Reconnect",
+          "prefix": "TikTokLive",
+          "type": "communicate",
+          "description": "Connect / Disconnect / Reconnect from your TikTok Live Chat",
+          "format": "{$gitago.TikTokLive.act.light.on.off.toggle$} to or from the chat",
+          "tryInline": true,
+          "data": [
+            {
+              "id": "gitago.TikTokLive.act.light.on.off.toggle",
+              "type": "choice",
+              "label": "Text",
+              "default": "Toggle",
+              "valueChoices": [
+                "Connect",
+                "Disconnect"
+              ]
+            }
+          ]
+        }
+      ],
+      "states": [
+        {
+          "id": "gitago.TikTokLive.state.plugin_status",
+          "type": "text",
+          "desc": "TikTok | Plugin Status",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.like_count",
+          "type": "text",
+          "desc": "TikTok | Live Video Like Count",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.viewer_count",
+          "type": "text",
+          "desc": "TikTok | Live Video Viewer Count",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.follower_count",
+          "type": "text",
+          "desc": "TikTok | Live Video Follower Count",
+          "default": ""
+        }
+      ],
+      "events": [
+        {
+          "id": "gitago.TikTokLive.event.newFollower",
+          "name": "TikTok | New Follower",
+          "format": "When receiving a new follower $val ",
+          "type": "communicate",
+          "valueChoices": [
+            "True",
+            "False"
+          ],
+          "valueType": "choice",
+          "valueStateId": "gitago.TikTokLive.state.newFollower"
+        },
+        {
+          "id": "gitago.TikTokLive.event.newLike",
+          "name": "TikTok | New Like",
+          "format": "When receiving a new like $val ",
+          "type": "communicate",
+          "valueChoices": [
+            "True"
+          ],
+          "valueType": "choice",
+          "valueStateId": "gitago.TikTokLive.state.newLike"
+        },
+        {
+          "id": "gitago.TikTokLive.event.newShare",
+          "name": "TikTok | New Share",
+          "format": "When receiving a new share $val ",
+          "type": "communicate",
+          "valueChoices": [
+            "True"
+          ],
+          "valueType": "choice",
+          "valueStateId": "gitago.TikTokLive.state.newShare"
+        },
+        {
+          "id": "gitago.TikTokLive.event.newComment",
+          "name": "TikTok | New Comment",
+          "format": "When receiving a new comment $val ",
+          "type": "communicate",
+          "valueChoices": [
+            "True"
+          ],
+          "valueType": "choice",
+          "valueStateId": "gitago.TikTokLive.state.newComment"
+        },
+        {
+          "id": "gitago.TikTokLive.event.newGift",
+          "name": "TikTok | New Gift",
+          "format": "When receiving a new gift $val ",
+          "type": "communicate",
+          "valueChoices": [
+            "True"
+          ],
+          "valueType": "choice",
+          "valueStateId": "gitago.TikTokLive.state.newGift"
+        },
+        {
+          "id": "gitago.TikTokLive.event.newJoin",
+          "name": "TikTok | New Join",
+          "format": "When receiving a new join $val ",
+          "type": "communicate",
+          "valueChoices": [
+            "True"
+          ],
+          "valueType": "choice",
+          "valueStateId": "gitago.TikTokLive.state.newJoin"
+        }
+      ],
+      "connectors": []
+    },
+    {
+      "id": "gitago.TikTokLive.newFollower",
+      "name": "TikTokLive New Follower",
+      "actions": [],
+      "states": [
+        {
+          "id": "gitago.TikTokLive.state.newFollower.Name",
+          "type": "text",
+          "desc": "TikTok | New Follower Name",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newFollower.UserID",
+          "type": "text",
+          "desc": "TikTok | New Follower UserID",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newFollower.Avatar",
+          "type": "text",
+          "desc": "TikTok | New Follower Avatar",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newFollower.Followers",
+          "type": "text",
+          "desc": "TikTok | New Follower Followers",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newFollower",
+          "type": "text",
+          "desc": "TikTok | New Follower ",
+          "default": ""
+        }
+      ],
+      "events": [],
+      "connectors": []
+    },
+    {
+      "id": "gitago.TikTokLive.newLike",
+      "name": "TikTokLive New Like",
+      "actions": [],
+      "states": [
+        {
+          "id": "gitago.TikTokLive.state.newLike.TimesLiked",
+          "type": "text",
+          "desc": "TikTok | New Like Times Liked",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newLike.Name",
+          "type": "text",
+          "desc": "TikTok | New Like Name",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newLike.UserID",
+          "type": "text",
+          "desc": "TikTok | New Like UserID",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newLike.Avatar",
+          "type": "text",
+          "desc": "TikTok | New Like Avatar",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newLike.Followers",
+          "type": "text",
+          "desc": "TikTok | New Like Followers",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newLike",
+          "type": "text",
+          "desc": "TikTok | New Like ",
+          "default": ""
+        }
+      ],
+      "events": [],
+      "connectors": []
+    },
+    {
+      "id": "gitago.TikTokLive.newShare",
+      "name": "TikTokLive New Share",
+      "actions": [],
+      "states": [
+        {
+          "id": "gitago.TikTokLive.state.newShare.Name",
+          "type": "text",
+          "desc": "TikTok | New Share Name",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newShare.UserID",
+          "type": "text",
+          "desc": "TikTok | New Share UserID",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newShare.Avatar",
+          "type": "text",
+          "desc": "TikTok | New Share Avatar",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newShare.Followers",
+          "type": "text",
+          "desc": "TikTok | New Share Followers",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newShare",
+          "type": "text",
+          "desc": "TikTok | New Share ",
+          "default": ""
+        }
+      ],
+      "events": [],
+      "connectors": []
+    },
+    {
+      "id": "gitago.TikTokLive.newComment",
+      "name": "TikTokLive New Comment",
+      "actions": [],
+      "states": [
+        {
+          "id": "gitago.TikTokLive.state.newComment.Name",
+          "type": "text",
+          "desc": "TikTok | New Comment Name",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newComment.UserID",
+          "type": "text",
+          "desc": "TikTok | New Comment UserID",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newComment.Avatar",
+          "type": "text",
+          "desc": "TikTok | New Comment Avatar",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newComment.Followers",
+          "type": "text",
+          "desc": "TikTok | New Comment Followers",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newComment",
+          "type": "text",
+          "desc": "TikTok | New Comment ",
+          "default": ""
+        }
+      ],
+      "events": [],
+      "connectors": []
+    },
+    {
+      "id": "gitago.TikTokLive.newGift",
+      "name": "TikTokLive New Gift",
+      "actions": [],
+      "states": [
+        {
+          "id": "gitago.TikTokLive.state.newGift.Avatar",
+          "type": "text",
+          "desc": "TikTok | New Gift Avatar",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newGift.TotalGifts",
+          "type": "text",
+          "desc": "TikTok | New Gift Total Gifts",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newGift.GiftID",
+          "type": "text",
+          "desc": "TikTok | New Gift Gift ID",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newGift.GiftName",
+          "type": "text",
+          "desc": "TikTok | New Gift Gift Name",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newGift.Name",
+          "type": "text",
+          "desc": "TikTok | New Gift Name",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newGift.UserID",
+          "type": "text",
+          "desc": "TikTok | New Gift UserID",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newGift.Avatar",
+          "type": "text",
+          "desc": "TikTok | New Gift Avatar",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newGift.Followers",
+          "type": "text",
+          "desc": "TikTok | New Gift Followers",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newGift",
+          "type": "text",
+          "desc": "TikTok | New Gift ",
+          "default": ""
+        }
+      ],
+      "events": [],
+      "connectors": []
+    },
+    {
+      "id": "gitago.TikTokLive.newJoin",
+      "name": "TikTokLive New Join",
+      "actions": [],
+      "states": [
+        {
+          "id": "gitago.TikTokLive.state.newJoin.Name",
+          "type": "text",
+          "desc": "TikTok | New Join Name",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newJoin.UserID",
+          "type": "text",
+          "desc": "TikTok | New Join UserID",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newJoin.Avatar",
+          "type": "text",
+          "desc": "TikTok | New Join Avatar",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newJoin.Followers",
+          "type": "text",
+          "desc": "TikTok | New Join Followers",
+          "default": ""
+        },
+        {
+          "id": "gitago.TikTokLive.state.newJoin",
+          "type": "text",
+          "desc": "TikTok | New Join ",
+          "default": ""
+        }
+      ],
+      "events": [],
+      "connectors": []
+    }
+  ],
+  "settings": [
+    {
+      "name": "TikTok Username",
+      "type": "text",
+      "default": "",
+      "readOnly": false
+    },
+    {
+      "name": "Auto Connect",
+      "type": "text",
+      "default": "False",
+      "readOnly": false
+    }
+  ]
+}
