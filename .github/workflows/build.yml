@@ -30,7 +30,7 @@ jobs:
           
       - name: Build tpp using tppbuild
         run: |
-          python3 "/src/build.py"
+          python3 "src/build.py"
       - name: uploading tpp for ${{ matrix.os}}
         uses: svenstaro/upload-release-action@v2
         with:
