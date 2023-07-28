@@ -29,6 +29,7 @@ In order for buildScript to work, you need to have the following variables in yo
 Even if you don't use all of the above variables, you still need to have the following variables in your build file
 """
 from TouchPortalAPI import tppbuild
+from TPPEntry import PLUGIN_NAME, PLUGIN_FOLDER, PLUGIN_ICON
 
 
 """
@@ -41,7 +42,7 @@ PLUGIN_EXE_NAME: This defines what you want your plugin executable to be named. 
                 `pluginname + "_v" + version + "_" + os_name + ".tpp"`
                 If left blank, the file name from PLUGIN_MAIN is used (w/out .py extension).
 """
-PLUGIN_EXE_NAME = "Websockets_TP"
+PLUGIN_EXE_NAME = PLUGIN_NAME
 
 """
 PLUGIN_EXE_ICON: This should be a path to a .ico file. However if png passed in, it will automatically converted to ico.
@@ -61,7 +62,7 @@ PLUGIN_ENTRY = "entry.tp"  # Here we just use the same file as the plugin's main
 PLUGIN_ENTRY_INDENT = 2
 
 """ This is the root folder name that will be inside of .tpp """
-PLUGIN_ROOT = "Websocket Plugin"
+PLUGIN_ROOT = PLUGIN_FOLDER
 
 """ Path to icon file used in entry.tp for category `imagepath`, if any. If left blank, TP will use a default icon. """
 PLUGIN_ICON = r""
@@ -86,7 +87,8 @@ If you have any required file(s) that your plugin needs, put them in this list.
 ADDITIONAL_FILES = [
     "start.sh"
     ]
-
+if PLUGIN_ICON:
+    ADDITIONAL_FILES.append(PLUGIN_ICON)
 
 ADDITIONAL_TPPSDK_ARGS = []
 

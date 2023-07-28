@@ -3,10 +3,10 @@ name: build
 on:
   release:
     types: [published]
-    
+  
 permissions:
   contents: write
-  
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
