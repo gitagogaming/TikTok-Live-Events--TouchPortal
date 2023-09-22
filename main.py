@@ -220,11 +220,11 @@ class TikTok_Client:
     
     def update_message_states(self,event):
         for index, message in enumerate(self.last_5_messages):
-            TPClient.createState(PLUGIN_ID + f".message_{index + 1}.Username", f"Message_{index + 1} - Username", str(message['nickname']))
-            TPClient.createState(PLUGIN_ID + f".message_{index + 1}.Message", f"Message_{index + 1} - Message", str(message['comment']))
-            TPClient.createState(PLUGIN_ID + f".message_{index + 1}.UserID", f"Message_{index + 1} - UserID", str(event.user.user_id))
-            TPClient.createState(PLUGIN_ID + f".message_{index + 1}.Followers", f"Message_{index + 1} - Followers", str(event.user.info.followers))
-            TPClient.createState(PLUGIN_ID + f".message_{index + 1}.FollowerRole", f"Message_{index + 1} - FollowerRole", str(event.user.info.follow_role))
+            TPClient.createState(PLUGIN_ID + f".state.message_{index + 1}.Username", f"Message_{index + 1} - Username", str(message['nickname']))
+            TPClient.createState(PLUGIN_ID + f".state.message_{index + 1}.Message", f"Message_{index + 1} - Message", str(message['comment']))
+            TPClient.createState(PLUGIN_ID + f".state.message_{index + 1}.UserID", f"Message_{index + 1} - UserID", str(event.user.user_id))
+            TPClient.createState(PLUGIN_ID + f".state.message_{index + 1}.Followers", f"Message_{index + 1} - Followers", str(event.user.info.followers))
+            TPClient.createState(PLUGIN_ID + f".state.message_{index + 1}.FollowerRole", f"Message_{index + 1} - FollowerRole", str(event.user.info.follow_role))
 
             ## do avatar later
             #  TPClient.createState(PLUGIN_ID + f".act.message_{index + 1}.Avatar", f"Message_{index + 1} - Avatar", str(event.user.avatar.urls[0]))
@@ -380,15 +380,15 @@ class TikTok_Client:
         """
         TPClient.stateUpdate(PLUGIN_ID + ".state.viewer_count", str(event.viewer_count))
         for x in event.top_viewers[0:5]:
-            TPClient.createState(PLUGIN_ID + f".act.top_viewer_{event.top_viewers.index(x) + 1}.Name",
+            TPClient.createState(PLUGIN_ID + f".state.top_viewer_{event.top_viewers.index(x) + 1}.Name",
                                 f"Top Viewer {event.top_viewers.index(x) + 1} - Name",
                                 str(x.user.nickname),
                                 "Top 5 Viewers")
-            TPClient.createState(PLUGIN_ID + f".act.top_viewer_{event.top_viewers.index(x) + 1}.UserID",
+            TPClient.createState(PLUGIN_ID + f".state.top_viewer_{event.top_viewers.index(x) + 1}.UserID",
                                 f"Top Viewer {event.top_viewers.index(x) + 1} - UserID",
                                 str(x.user.user_id),
                                 "Top 5 Viewers")
-            TPClient.createState(PLUGIN_ID + f".act.top_viewer_{event.top_viewers.index(x) + 1}.CoinsGiven",
+            TPClient.createState(PLUGIN_ID + f".state.top_viewer_{event.top_viewers.index(x) + 1}.CoinsGiven",
                                 f"Top Viewer {event.top_viewers.index(x) + 1} - CoinsGiven",
                                 str(x.coins_given),
                                 "Top 5 Viewers")
