@@ -29,7 +29,7 @@ In order for buildScript to work, you need to have the following variables in yo
 Even if you don't use all of the above variables, you still need to have the following variables in your build file
 """
 from TouchPortalAPI import tppbuild
-from TPPEntry import PLUGIN_NAME, PLUGIN_FOLDER, PLUGIN_ICON
+from TPPEntry import PLUGIN_NAME, PLUGIN_FOLDER
 
 
 """
@@ -47,7 +47,7 @@ PLUGIN_EXE_NAME = PLUGIN_NAME + "_Plugin"
 """
 PLUGIN_EXE_ICON: This should be a path to a .ico file. However if png passed in, it will automatically converted to ico.
 """
-PLUGIN_EXE_ICON = r""
+PLUGIN_EXE_ICON = f"{PLUGIN_NAME}.png"
 
 
 """
@@ -65,7 +65,7 @@ PLUGIN_ENTRY_INDENT = 2
 PLUGIN_ROOT = PLUGIN_FOLDER
 
 """ Path to icon file used in entry.tp for category `imagepath`, if any. If left blank, TP will use a default icon. """
-PLUGIN_ICON = r""
+PLUGIN_ICON = f"{PLUGIN_NAME}.png"
 
 """ This tells tppbuild where you want finished build tpp to be saved at. Default "./" meaning current dir where tppbuild is running from. """
 OUTPUT_PATH = r"./"

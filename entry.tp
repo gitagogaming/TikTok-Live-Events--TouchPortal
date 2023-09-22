@@ -14,7 +14,7 @@
     {
       "id": "gitago.TikTokLive.main",
       "name": "TikTokLive",
-      "imagepath": "%TP_PLUGIN_FOLDER%TikTokLive\\",
+      "imagepath": "%TP_PLUGIN_FOLDER%TikTokLive\\TikTokLive.png",
       "actions": [
         {
           "id": "gitago.TikTokLive.act.Connect",

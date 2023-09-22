@@ -2,7 +2,6 @@ __version__ = 104
 PLUGIN_ID = "gitago.TikTokLive"
 PLUGIN_NAME = "TikTokLive"
 PLUGIN_FOLDER = "TikTokLive"
-PLUGIN_ICON = ""
 
 
 TP_PLUGIN_INFO = {
