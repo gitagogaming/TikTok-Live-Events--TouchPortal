@@ -1,4 +1,4 @@
-__version__ = 103
+__version__ = 104
 PLUGIN_ID = "gitago.TikTokLive"
 PLUGIN_NAME = "TikTokLive"
 PLUGIN_FOLDER = "TikTokLive"
@@ -319,7 +319,6 @@ for action_type in action_types:
         configurations[key] = configuration
 
 
-print(configurations)
 TP_PLUGIN_STATES.update(configurations)
 
 

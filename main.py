@@ -220,11 +220,11 @@ class TikTok_Client:
     
     def update_message_states(self,event):
         for index, message in enumerate(self.last_5_messages):
-            TPClient.createState(PLUGIN_ID + f".act.message_{index + 1}.Username", f"Message_{index + 1} - Username", str(message['nickname']))
-            TPClient.createState(PLUGIN_ID + f".act.message_{index + 1}.Message", f"Message_{index + 1} - Message", str(message['comment']))
-            TPClient.createState(PLUGIN_ID + f".act.message_{index + 1}.UserID", f"Message_{index + 1} - UserID", str(event.user.user_id))
-            TPClient.createState(PLUGIN_ID + f".act.message_{index + 1}.Followers", f"Message_{index + 1} - Followers", str(event.user.info.followers))
-            TPClient.createState(PLUGIN_ID + f".act.message_{index + 1}.FollowerRole", f"Message_{index + 1} - FollowerRole", str(event.user.info.follow_role))
+            TPClient.createState(PLUGIN_ID + f".message_{index + 1}.Username", f"Message_{index + 1} - Username", str(message['nickname']))
+            TPClient.createState(PLUGIN_ID + f".message_{index + 1}.Message", f"Message_{index + 1} - Message", str(message['comment']))
+            TPClient.createState(PLUGIN_ID + f".message_{index + 1}.UserID", f"Message_{index + 1} - UserID", str(event.user.user_id))
+            TPClient.createState(PLUGIN_ID + f".message_{index + 1}.Followers", f"Message_{index + 1} - Followers", str(event.user.info.followers))
+            TPClient.createState(PLUGIN_ID + f".message_{index + 1}.FollowerRole", f"Message_{index + 1} - FollowerRole", str(event.user.info.follow_role))
 
             ## do avatar later
             #  TPClient.createState(PLUGIN_ID + f".act.message_{index + 1}.Avatar", f"Message_{index + 1} - Avatar", str(event.user.avatar.urls[0]))

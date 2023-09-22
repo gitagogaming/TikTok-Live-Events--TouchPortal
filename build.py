@@ -42,7 +42,7 @@ PLUGIN_EXE_NAME: This defines what you want your plugin executable to be named. 
                 `pluginname + "_v" + version + "_" + os_name + ".tpp"`
                 If left blank, the file name from PLUGIN_MAIN is used (w/out .py extension).
 """
-PLUGIN_EXE_NAME = PLUGIN_NAME
+PLUGIN_EXE_NAME = PLUGIN_NAME + "_Plugin"
 
 """
 PLUGIN_EXE_ICON: This should be a path to a .ico file. However if png passed in, it will automatically converted to ico.
