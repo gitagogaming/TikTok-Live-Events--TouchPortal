@@ -88,7 +88,7 @@ ADDITIONAL_FILES = [
     "start.sh"
     ]
 if PLUGIN_ICON:
-    ADDITIONAL_FILES.append(PLUGIN_ICON)
+    ADDITIONAL_FILES.append("TikTokLive.png")
 
 ADDITIONAL_TPPSDK_ARGS = []
 
