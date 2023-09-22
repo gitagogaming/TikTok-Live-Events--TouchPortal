@@ -44,7 +44,7 @@ TP_PLUGIN_CATEGORIES = {
     "main": {
         'id': PLUGIN_ID + ".main",
         'name' : "TikTokLive",
-        'imagepath': f"%TP_PLUGIN_FOLDER%{PLUGIN_NAME}\\{PLUGIN_ICON}",
+        'imagepath': f"%TP_PLUGIN_FOLDER%{PLUGIN_NAME}\\TikTokLive.png",
     },
     "New Follower": {
         'id': PLUGIN_ID + ".newFollower",
