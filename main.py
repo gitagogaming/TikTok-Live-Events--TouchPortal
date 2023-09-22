@@ -497,6 +497,9 @@ def run_tk():
 if __name__ == "__main__":
     tk = TikTok_Client()
     tk.stop_TikTok_Thread()
+    result = main()
+    tk.stop_TikTok_Thread()
+    tk.tiktok.stop()
     sys.exit(main())
 
 
